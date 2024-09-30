@@ -16,15 +16,16 @@ connectDB();
 app.use(express.json());
 
 // Configurar CORS
-if (process.env.CORS === 'development') {
-  app.use(cors({
-    origin: 'http://localhost:5173', // URL de tu frontend en desarrollo
-  }));
-} else {
-  app.use(cors({
-    origin: 'https://vercel.com/punkydevelopers-projects/front-prueba', // URL de tu dominio de producción
-  }));
-}
+app.use(cors({
+  origin: [
+      'http://localhost:5173', // Permite desarrollo local
+      'https://front-prueba-three.vercel.app', // Permite el frontend en producción
+      'https://vercel.com/punkydevelopers-projects/front-prueba' // Permite el origen adicional si es necesario
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  credentials: true // Si necesitas enviar cookies o autenticación
+}));
+
 
 // Usar el enrutador para las rutas
 app.use('/', router);
