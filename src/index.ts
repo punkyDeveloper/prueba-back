@@ -22,7 +22,7 @@ if (process.env.CORS === 'development') {
   }));
 } else {
   app.use(cors({
-    origin: 'https://miapp.com', // URL de tu dominio de producción
+    origin: 'https://vercel.com/punkydevelopers-projects/front-prueba', // URL de tu dominio de producción
   }));
 }
 
