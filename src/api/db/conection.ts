@@ -21,3 +21,4 @@ export const connectDB = async (): Promise<boolean> => {
     return Promise.reject(false);
   }
 };
+export default connectDB;
