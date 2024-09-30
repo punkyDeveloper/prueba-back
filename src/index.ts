@@ -16,17 +16,7 @@ connectDB();
 app.use(express.json());
 
 // Configurar CORS
-app.use(cors({
-  origin: [
-      'http://localhost:5173', // Permite desarrollo local
-      'https://front-prueba-three.vercel.app', // Permite el frontend en producción
-      'https://front-prueba-a15w.vercel.app/',
-      'https://vercel.com/punkydevelopers-projects/front-prueba', // Permite el origen adicional si es necesario
-      'https://vercel.com/punkydevelopers-projects/front-prueba-a15w', // Permite el origen adicional si es necesario
-      ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  credentials: true // Si necesitas enviar cookies o autenticación
-}));
+app.use(cors());
 
 
 // Usar el enrutador para las rutas
