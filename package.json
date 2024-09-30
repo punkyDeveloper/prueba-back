@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "dotenv -- nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node src/index.ts",
     "build": "tsc",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
-    "start:dev": "cross-env NODE_ENV=development node dist/index.js"
+    "start": "node dist/index.js",
+    "start:dev": "NODE_ENV=development node dist/index.js"
   },
   "author": "Santiago Hernandez",
   "license": "ISC",
