@@ -87,6 +87,35 @@ describe('Controlador de Usuarios', () => {
     });
   });
 
+  describe('Obtener Usuario', () => {
+    let userId: string;
+
+    beforeAll(async () => {
+      const response = await request(app)
+        .post('/registrar')
+        .send(mockUser);
+      userId = response.body.user._id; // Guarda el ID del usuario registrado
+    });
+
+    it('debería obtener un usuario existente', async () => {
+      const response = await request(app)
+        .get(`/obtener/${userId}`) // Asegúrate de que esta ruta sea correcta
+        .send();
+      
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual(expect.objectContaining({ email: mockUser.correo }));
+    });
+
+    it('debería devolver un error si el usuario no existe', async () => {
+      const response = await request(app)
+        .get(`/obtener/invalidId`) // ID no válido
+        .send();
+      
+      expect(response.status).toBe(404);
+      expect(response.body).toHaveProperty('message', 'Usuario no encontrado');
+    });
+  });
+  
   describe('Eliminar Usuario', () => {
     let userId: string;
 
@@ -117,32 +146,5 @@ describe('Controlador de Usuarios', () => {
     });
   });
 
-  describe('Obtener Usuario', () => {
-    let userId: string;
 
-    beforeAll(async () => {
-      const response = await request(app)
-        .post('/registrar')
-        .send(mockUser);
-      userId = response.body.user._id; // Guarda el ID del usuario registrado
-    });
-
-    it('debería obtener un usuario existente', async () => {
-      const response = await request(app)
-        .get(`/obtener/${userId}`) // Asegúrate de que esta ruta sea correcta
-        .send();
-      
-      expect(response.status).toBe(200);
-      expect(response.body).toEqual(expect.objectContaining({ email: mockUser.correo }));
-    });
-
-    it('debería devolver un error si el usuario no existe', async () => {
-      const response = await request(app)
-        .get(`/obtener/invalidId`) // ID no válido
-        .send();
-      
-      expect(response.status).toBe(404);
-      expect(response.body).toHaveProperty('message', 'Usuario no encontrado');
-    });
-  });
 });
