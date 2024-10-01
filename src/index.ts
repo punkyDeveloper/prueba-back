@@ -4,7 +4,7 @@ import { connectDB } from './api/db/conection';
 import router from './api/routes/router';
 import cors from 'cors';
 
-dotenv.config(); // Carga las variables de entorno desde el archivo .env
+dotenv.config(); 
 
 const app = express();
 const port = process.env.PORT || 3002;

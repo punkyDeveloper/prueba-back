@@ -93,7 +93,7 @@ export const eliminarNota = async (req: Request, res: Response): Promise<void> =
 export const obtenerNotasPorUsuarioId = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params; // Aquí obtendremos el ID del usuario
-    const notas = await Notas.find({ usuarioId: id }); // Asegúrate de que el esquema de Notas tenga un campo `userId`
+    const notas = await Notas.find({ usuarioId: id }); 
 
     console.log('User ID:', id); // Log del ID del usuario
 

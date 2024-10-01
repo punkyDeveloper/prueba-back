@@ -5,7 +5,7 @@ import { crearNota, obtenerNotas, obtenerNotasPorUsuarioId, actualizarNota, elim
 import { login } from '../controllers/login';
 import { protect } from '../middleware/autenticación';
 // eslint-disable-next-line new-cap
-// const router = express.Router();
+
 const router = Router();
 // Ruta para registrar un nuevo usuario
 router.post('/registrar', Registrar);

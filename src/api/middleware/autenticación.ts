@@ -43,9 +43,9 @@ export const protect = (req: AuthRequest, res: Response, next: NextFunction): vo
 
 
     
-    next(); // Pasa al siguiente middleware o controlador
+    next(); 
   } catch (error) {
-    // Manejo de errores de JWT (token expirado, token inválido)
+    
     if (error instanceof jwt.TokenExpiredError) {
       res.status(401).json({ message: 'Token expirado.', token: null });
       return;

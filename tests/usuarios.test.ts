@@ -1,6 +1,6 @@
 import request from 'supertest';
-import app from '../src/index'; // Asegúrate de importar tu aplicación Express
-import Usuarios from '../src/api/models/registrar'; // Asegúrate de importar tu modelo
+import app from '../src/index'; 
+import Usuarios from '../src/api/models/registrar'; 
 
 describe('Controlador de Usuarios', () => {
   const mockUser = {

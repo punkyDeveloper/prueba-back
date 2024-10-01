@@ -1,9 +1,9 @@
 import request from 'supertest';
 import mongoose from 'mongoose';
-import app from '../src/index'; // Asegúrate de que la ruta a tu aplicación sea correcta
+import app from '../src/index'; 
 import Notas from '../src/api/models/notas';
-import { connectDB } from "../src/api/db/conection"; // Ajusta la ruta si es necesario
-// Conectar a la base de datos antes de ejecutar las pruebas
+import { connectDB } from "../src/api/db/conection"; 
+
 beforeAll(async () => {
     const isConnected = await connectDB();
     if (!isConnected) {

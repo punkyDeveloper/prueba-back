@@ -23,7 +23,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Comparar directamente la contraseña (lógica simplificada, pero idealmente usarías bcrypt)
+    
     if (user.password !== password) {
       res.status(400).json({ message: 'Contraseña incorrecta.' });
       return;
